@@ -5,6 +5,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "devops", "devops", "{FFF2FC89-3BE8-48AC-A1FF-6D9D9A49712F}"
 	ProjectSection(SolutionItems) = preProject
 		.env = .env
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1.Tests", "ClassLibrary1.Tests\ClassLibrary1.Tests.csproj", "{97D6F253-4528-4518-AB93-0DAD2BCAA06F}"
