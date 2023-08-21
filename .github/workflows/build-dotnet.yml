@@ -4,9 +4,9 @@
 name: Build
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -15,20 +15,18 @@ jobs:
 
     steps:
 
+      - run: echo "The branch name is ${{ github.repository }}"
+      - uses: actions/checkout@v3
 
       - name: Load .env file
         uses: xom9ikk/dotenv@v2
-        with:
+        with: 
           path: ./
-          load-mode: strict
 
       - name: Environment Variables
         run: |
           echo "SOLUTION_FILE: ${{ env.SOLUTION_FILE }}"
           echo "SONAR_PROJECT_KEY: ${{ env.SONAR_PROJECT_KEY }}"
-
-      - run: echo "The branch name is ${{ github.repository }}"
-      - uses: actions/checkout@v3
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
