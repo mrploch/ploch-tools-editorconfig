@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="CommandLineParser" Version="2.9.1"/>
+        <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="4.1.1"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\..\ploch-commandline\src\CommandLine.Autofac\Ploch.Common.CommandLine.Autofac.csproj"/>
+        <ProjectReference Include="..\..\..\..\ploch-commandline\src\CommandLine.Serilog\Ploch.Common.CommandLine.Serilog.csproj"/>
+        <ProjectReference Include="..\..\..\..\ploch-commandline\src\CommandLine\Ploch.Common.CommandLine.csproj"/>
+        <ProjectReference Include="..\..\..\..\ploch-data\src\Data.EFCore.SqlServer\Ploch.Data.EFCore.SqlServer.csproj"/>
+        <ProjectReference Include="..\..\..\..\ploch-data\src\Data.GenericRepository\Data.GenericRepository.EFCore\Ploch.Data.GenericRepository.EFCore.csproj"/>
+        <ProjectReference Include="..\..\DataAccess\Ploch.EditorConfigTools.DataAccess.csproj"/>
+        <ProjectReference Include="..\..\UseCases\Ploch.EditorConfigTools.UseCases.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="appsettings.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
+</Project>

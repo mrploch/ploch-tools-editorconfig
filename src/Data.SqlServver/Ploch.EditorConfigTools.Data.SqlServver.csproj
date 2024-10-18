@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\ploch-data\src\Data.EFCore.IdentityServer.SqlServer\Ploch.Data.EFCore.IdentityServer.SqlServer.csproj"/>
+        <ProjectReference Include="..\..\..\ploch-data\src\Data.EFCore.SqlServer\Ploch.Data.EFCore.SqlServer.csproj"/>
+        <ProjectReference Include="..\..\..\ploch-data\src\Data.EFCore\Ploch.Data.EFCore.csproj"/>
+        <ProjectReference Include="..\DataAccess\Ploch.EditorConfigTools.DataAccess.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="appsettings.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
+</Project>

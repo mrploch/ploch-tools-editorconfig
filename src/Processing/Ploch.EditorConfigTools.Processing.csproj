@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\ploch-data\src\Data.GenericRepository\Data.GenericRepository\Ploch.Data.GenericRepository.csproj"/>
+        <ProjectReference Include="..\Models\Ploch.EditorConfigTools.Models.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ini-parser"/>
+        <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers"/>
+    </ItemGroup>
+
+</Project>
