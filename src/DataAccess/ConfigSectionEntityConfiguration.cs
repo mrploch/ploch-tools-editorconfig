@@ -10,6 +10,7 @@ public class ConfigSectionEntityConfiguration : IEntityTypeConfiguration<ConfigS
     {
         builder.HasOne(e => e.ConfigSectionType).WithMany(e => e.ConfigSections).IsRequired(false).OnDelete(DeleteBehavior.SetNull);
         builder.HasOne(e => e.EditorConfigFile).WithMany(e => e.ConfigSections).OnDelete(DeleteBehavior.SetNull);
-        builder.HasMany(e => e.FileExtensions).WithMany(e => e.ConfigSections);
+        builder.HasOne(e => e.FilePattern).WithMany(e => e.ConfigSections);
+        builder.HasMany(e => e.ConfigEntries).WithOne(e => e.ConfigSection).IsRequired(false).OnDelete(DeleteBehavior.Cascade);
     }
 }

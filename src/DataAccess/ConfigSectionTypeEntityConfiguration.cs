@@ -8,6 +8,7 @@ public class ConfigSectionTypeEntityConfiguration : IEntityTypeConfiguration<Con
 {
     public void Configure(EntityTypeBuilder<ConfigSectionType> builder)
     {
-        builder.HasMany(e => e.FileExtensions).WithMany(e => e.ConfigSectionTypes);
+        builder.HasOne(e => e.FilePattern).WithMany(e => e.ConfigSectionTypes).OnDelete(DeleteBehavior.NoAction);
+        builder.HasMany(e => e.ConfigSections).WithOne(e => e.ConfigSectionType).IsRequired(false).OnDelete(DeleteBehavior.Cascade);
     }
 }

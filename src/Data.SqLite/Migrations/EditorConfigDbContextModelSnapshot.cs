@@ -387,7 +387,7 @@ namespace Ploch.EditorConfigTools.Data.SqLite.Migrations
                     b.ToTable("EditorConfigFiles");
                 });
 
-            modelBuilder.Entity("Ploch.EditorConfigTools.Models.FileExtension", b =>
+            modelBuilder.Entity("Ploch.EditorConfigTools.Models.FileType", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -397,7 +397,7 @@ namespace Ploch.EditorConfigTools.Data.SqLite.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("FileExtensions");
+                    b.ToTable("FilePattern");
                 });
 
             modelBuilder.Entity("Ploch.EditorConfigTools.Models.Project", b =>
@@ -548,7 +548,7 @@ namespace Ploch.EditorConfigTools.Data.SqLite.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Ploch.EditorConfigTools.Models.FileExtension", null)
+                    b.HasOne("Ploch.EditorConfigTools.Models.FileType", null)
                         .WithMany()
                         .HasForeignKey("FileExtensionsId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -563,7 +563,7 @@ namespace Ploch.EditorConfigTools.Data.SqLite.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Ploch.EditorConfigTools.Models.FileExtension", null)
+                    b.HasOne("Ploch.EditorConfigTools.Models.FileType", null)
                         .WithMany()
                         .HasForeignKey("FileExtensionsId")
                         .OnDelete(DeleteBehavior.Cascade)

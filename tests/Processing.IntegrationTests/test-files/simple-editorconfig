@@ -1,0 +1,13 @@
+[*.cs]
+guidelines = 160
+# RCS1169: Make field read-only.
+dotnet_diagnostic.rcs1169.severity = warning
+
+# Standard properties
+dotnet_diagnostic.sa1200.severity = none
+customkey_with_comment = true # Comment here
+
+[*.{appxmanifest,asax}]
+indent_style = space
+indent_size = 4
+tab_width = 4

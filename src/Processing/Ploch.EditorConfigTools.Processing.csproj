@@ -7,13 +7,28 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\ploch-data\src\Data.GenericRepository\Data.GenericRepository\Ploch.Data.GenericRepository.csproj"/>
-        <ProjectReference Include="..\Models\Ploch.EditorConfigTools.Models.csproj"/>
+        <ProjectReference Include="..\..\..\ploch-common\src\Common\Ploch.Common.csproj" />
+        <ProjectReference Include="..\..\..\ploch-data\src\Data.GenericRepository\Data.GenericRepository\Ploch.Data.GenericRepository.csproj" />
+        <ProjectReference Include="..\Models\Ploch.EditorConfigTools.Models.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="ini-parser"/>
-        <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers"/>
+        <PackageReference Include="editorconfig" Version="0.15.0" />
+        <PackageReference Include="ini-parser-new" Version="2.6.2" />
+
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="8.0.10" />
+
+        <PackageReference Include="TestableIO.System.IO.Abstractions" Version="21.0.29" />
+
+        <PackageReference Include="TestableIO.System.IO.Abstractions.Analyzers" Version="2022.0.0">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+
+        <PackageReference Include="TestableIO.System.IO.Abstractions.Extensions" Version="2.2.5" />
+        <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" Version="21.0.29" />
+        
     </ItemGroup>
+
 
 </Project>

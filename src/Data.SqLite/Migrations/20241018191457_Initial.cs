@@ -67,7 +67,7 @@ namespace Ploch.EditorConfigTools.Data.SqLite.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "FileExtensions",
+                name: "FilePattern",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "TEXT", nullable: false),
@@ -271,7 +271,7 @@ namespace Ploch.EditorConfigTools.Data.SqLite.Migrations
                     table.ForeignKey(
                         name: "FK_ConfigSectionTypeFileExtension_FileExtensions_FileExtensionsId",
                         column: x => x.FileExtensionsId,
-                        principalTable: "FileExtensions",
+                        principalTable: "FilePattern",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -442,7 +442,7 @@ namespace Ploch.EditorConfigTools.Data.SqLite.Migrations
                     table.ForeignKey(
                         name: "FK_ConfigSectionFileExtension_FileExtensions_FileExtensionsId",
                         column: x => x.FileExtensionsId,
-                        principalTable: "FileExtensions",
+                        principalTable: "FilePattern",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -625,7 +625,7 @@ namespace Ploch.EditorConfigTools.Data.SqLite.Migrations
                 name: "ConfigEntries");
 
             migrationBuilder.DropTable(
-                name: "FileExtensions");
+                name: "FilePattern");
 
             migrationBuilder.DropTable(
                 name: "SettingCategories");

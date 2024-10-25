@@ -1,38 +1,41 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.EditorConfigTools.Models", "src\Models\Ploch.EditorConfigTools.Models.csproj", "{BAD67309-424B-482A-AA29-F50DF6AEE909}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.EditorConfigTools.Models", "src\Models\Ploch.EditorConfigTools.Models.csproj", "{BAD67309-424B-482A-AA29-F50DF6AEE909}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common", "..\ploch-common\src\Common\Ploch.Common.csproj", "{69941483-9056-4CF0-A3E4-5F5DDB5A2F50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common", "..\ploch-common\src\Common\Ploch.Common.csproj", "{69941483-9056-4CF0-A3E4-5F5DDB5A2F50}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ploch-common", "ploch-common", "{A07F8C2C-F831-4502-93A3-F725231D648E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ploch-data", "ploch-data", "{085670AF-62CB-4D76-AA16-C3754B0AF5F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.DataAnnotations", "..\ploch-common\src\Common.DataAnnotations\Ploch.Common.DataAnnotations.csproj", "{F4A8A2CF-CCE5-4908-86A4-FBB15197A30C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.DataAnnotations", "..\ploch-common\src\Common.DataAnnotations\Ploch.Common.DataAnnotations.csproj", "{F4A8A2CF-CCE5-4908-86A4-FBB15197A30C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.DependencyInjection", "..\ploch-common\src\Common.DependencyInjection\Ploch.Common.DependencyInjection.csproj", "{8E2525AA-CF31-47EC-AD06-EA817B481A84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.DependencyInjection", "..\ploch-common\src\Common.DependencyInjection\Ploch.Common.DependencyInjection.csproj", "{8E2525AA-CF31-47EC-AD06-EA817B481A84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.Tests", "..\ploch-common\src\Common.Tests\Ploch.Common.Tests.csproj", "{DD6D12AC-A60F-48C7-BF06-27D1408020F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.Tests", "..\ploch-common\src\Common.Tests\Ploch.Common.Tests.csproj", "{DD6D12AC-A60F-48C7-BF06-27D1408020F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.DataAnnotations.Tests", "..\ploch-common\src\Common.DataAnnotations.Tests\Ploch.Common.DataAnnotations.Tests.csproj", "{ADCECFB7-65D0-4740-8217-F6B790D39247}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.DataAnnotations.Tests", "..\ploch-common\src\Common.DataAnnotations.Tests\Ploch.Common.DataAnnotations.Tests.csproj", "{ADCECFB7-65D0-4740-8217-F6B790D39247}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Data.Model", "..\ploch-data\src\Data.Model\Ploch.Data.Model.csproj", "{75637FCB-AB19-4779-A192-390E8B3AD61A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Data.Model", "..\ploch-data\src\Data.Model\Ploch.Data.Model.csproj", "{75637FCB-AB19-4779-A192-390E8B3AD61A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Data.StandardDataSets", "..\ploch-data\src\Data.StandardDataSets\Ploch.Data.StandardDataSets.csproj", "{D6A9BF7B-F7E9-4763-9DC7-3DE9C97E7903}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Data.StandardDataSets", "..\ploch-data\src\Data.StandardDataSets\Ploch.Data.StandardDataSets.csproj", "{D6A9BF7B-F7E9-4763-9DC7-3DE9C97E7903}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Data.EFCore", "..\ploch-data\src\Data.EFCore\Ploch.Data.EFCore.csproj", "{0D4AB516-32FD-484C-8DE8-748BD63DA308}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Data.EFCore", "..\ploch-data\src\Data.EFCore\Ploch.Data.EFCore.csproj", "{0D4AB516-32FD-484C-8DE8-748BD63DA308}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Data.EFCore.IntegrationTesting", "..\ploch-data\src\Data.EFCore.IntegrationTesting\Ploch.Data.EFCore.IntegrationTesting.csproj", "{A79F6243-134B-4CBC-9460-CBE15784A321}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Data.EFCore.IntegrationTesting", "..\ploch-data\src\Data.EFCore.IntegrationTesting\Ploch.Data.EFCore.IntegrationTesting.csproj", "{A79F6243-134B-4CBC-9460-CBE15784A321}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Data.EFCore.SqLite", "..\ploch-data\src\Data.EFCore.SqLite\Ploch.Data.EFCore.SqLite.csproj", "{D48744F4-DD2C-4035-944A-BD396B9FFCB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Data.EFCore.SqLite", "..\ploch-data\src\Data.EFCore.SqLite\Ploch.Data.EFCore.SqLite.csproj", "{D48744F4-DD2C-4035-944A-BD396B9FFCB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Data.EFCore.SqlServer", "..\ploch-data\src\Data.EFCore.SqlServer\Ploch.Data.EFCore.SqlServer.csproj", "{97461088-C3BF-45FE-87C4-8430263B0369}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Data.EFCore.SqlServer", "..\ploch-data\src\Data.EFCore.SqlServer\Ploch.Data.EFCore.SqlServer.csproj", "{97461088-C3BF-45FE-87C4-8430263B0369}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Data.GenericRepository", "..\ploch-data\src\Data.GenericRepository\Data.GenericRepository\Ploch.Data.GenericRepository.csproj", "{F8A5593D-C477-4BD6-BA8D-DD88635A5B92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Data.GenericRepository", "..\ploch-data\src\Data.GenericRepository\Data.GenericRepository\Ploch.Data.GenericRepository.csproj", "{F8A5593D-C477-4BD6-BA8D-DD88635A5B92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Data.GenericRepository.EFCore.IntegrationTesting", "..\ploch-data\src\Data.GenericRepository\Data.GenericRepository.EFCore.IntegrationTesting\Ploch.Data.GenericRepository.EFCore.IntegrationTesting.csproj", "{EF376270-5528-4204-B5D4-0DA5E34EBF86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Data.GenericRepository.EFCore.IntegrationTesting", "..\ploch-data\src\Data.GenericRepository\Data.GenericRepository.EFCore.IntegrationTesting\Ploch.Data.GenericRepository.EFCore.IntegrationTesting.csproj", "{EF376270-5528-4204-B5D4-0DA5E34EBF86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Data.GenericRepository.EFCore", "..\ploch-data\src\Data.GenericRepository\Data.GenericRepository.EFCore\Ploch.Data.GenericRepository.EFCore.csproj", "{D0AA8FAF-AFFD-4137-B93F-46F521CFD262}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Data.GenericRepository.EFCore", "..\ploch-data\src\Data.GenericRepository\Data.GenericRepository.EFCore\Ploch.Data.GenericRepository.EFCore.csproj", "{D0AA8FAF-AFFD-4137-B93F-46F521CFD262}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repository", "repository", "{956AAB92-3D7D-4679-B1A6-79F43411453D}"
 	ProjectSection(SolutionItems) = preProject
@@ -46,45 +49,103 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{383444
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		Directory.Build.props = Directory.Build.props
-		NuGet.Config = NuGet.Config
 		Directory.Packages.props = Directory.Packages.props
+		NuGet.Config = NuGet.Config
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.EditorConfigTools.DataAccess", "src\DataAccess\Ploch.EditorConfigTools.DataAccess.csproj", "{12C8D64B-D296-411E-8F23-251D0A3F415D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.EditorConfigTools.DataAccess", "src\DataAccess\Ploch.EditorConfigTools.DataAccess.csproj", "{12C8D64B-D296-411E-8F23-251D0A3F415D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.EditorConfigTools.Data.SqlServver", "src\Data.SqlServver\Ploch.EditorConfigTools.Data.SqlServver.csproj", "{F98A2E26-677F-4F8F-A65C-7B62EB6A0B46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.EditorConfigTools.Data.SqlServer", "src\Data.SqlServver\Ploch.EditorConfigTools.Data.SqlServer.csproj", "{F98A2E26-677F-4F8F-A65C-7B62EB6A0B46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Data.EFCore.IdentityServer", "..\ploch-data\src\Data.EFCore.IdentityServer\Ploch.Data.EFCore.IdentityServer.csproj", "{785FF1A9-7C21-42A4-BA55-8CCCFC53FA05}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Data.EFCore.IdentityServer.SqlServer", "..\ploch-data\src\Data.EFCore.IdentityServer.SqlServer\Ploch.Data.EFCore.IdentityServer.SqlServer.csproj", "{D85E22D1-0F07-4209-A3ED-90BBFC586210}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.EditorConfigTools.UI.ConsoleUI", "src\UI\ConsoleUI\Ploch.EditorConfigTools.UI.ConsoleUI.csproj", "{54A6BDB2-B6FD-42CF-8818-9CC31E9CAAB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.EditorConfigTools.UI.ConsoleUI", "src\UI\ConsoleUI\Ploch.EditorConfigTools.UI.ConsoleUI.csproj", "{54A6BDB2-B6FD-42CF-8818-9CC31E9CAAB7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{06272581-DF7B-4670-AD0F-94ABC06B2C51}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "commandline-app", "commandline-app", "{42CB0F66-23BA-4F65-8FC9-DF5AFCA374E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.CommandLine", "..\ploch-commandline\src\CommandLine\Ploch.Common.CommandLine.csproj", "{78F7B36C-221F-4336-B08A-B756DA03D0D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.CommandLine", "..\ploch-commandline\src\CommandLine\Ploch.Common.CommandLine.csproj", "{78F7B36C-221F-4336-B08A-B756DA03D0D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.CommandLine.Autofac", "..\ploch-commandline\src\CommandLine.Autofac\Ploch.Common.CommandLine.Autofac.csproj", "{62A3AE1F-E8D8-48CD-8600-231A8DDD7616}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.CommandLine.Autofac", "..\ploch-commandline\src\CommandLine.Autofac\Ploch.Common.CommandLine.Autofac.csproj", "{62A3AE1F-E8D8-48CD-8600-231A8DDD7616}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.CommandLine.Serilog", "..\ploch-commandline\src\CommandLine.Serilog\Ploch.Common.CommandLine.Serilog.csproj", "{F3A889F3-A9C6-4FDE-BFC7-FC64903C929D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.CommandLine.Serilog", "..\ploch-commandline\src\CommandLine.Serilog\Ploch.Common.CommandLine.Serilog.csproj", "{F3A889F3-A9C6-4FDE-BFC7-FC64903C929D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.Common.CommandLine.IntegrationTests", "..\ploch-commandline\tests\CommandLine.IntegrationTests\Ploch.Common.CommandLine.IntegrationTests.csproj", "{A6B76210-AB8D-4FE6-8A54-B0ECC5A62F73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.Common.CommandLine.IntegrationTests", "..\ploch-commandline\tests\CommandLine.IntegrationTests\Ploch.Common.CommandLine.IntegrationTests.csproj", "{A6B76210-AB8D-4FE6-8A54-B0ECC5A62F73}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demo-app", "demo-app", "{C9403D79-AAAC-4A7F-BAFA-5765BDDE220D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "..\ploch-commandline\src\DemoApp\ConsoleApp1\ConsoleApp1.csproj", "{7C5BD5E9-222F-461A-BEBD-16345746858E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "..\ploch-commandline\src\DemoApp\ConsoleApp1\ConsoleApp1.csproj", "{7C5BD5E9-222F-461A-BEBD-16345746858E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.EditorConfigTools.UseCases", "src\UseCases\Ploch.EditorConfigTools.UseCases.csproj", "{A03D34D0-3113-4DBD-920D-09827AE2E225}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.EditorConfigTools.UseCases", "src\UseCases\Ploch.EditorConfigTools.UseCases.csproj", "{A03D34D0-3113-4DBD-920D-09827AE2E225}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.EditorConfigTools.Data.SqLite", "src\Data.SqLite\Ploch.EditorConfigTools.Data.SqLite.csproj", "{E5D9BD52-2A6C-4BED-A0E5-D9BF1DCC29DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.EditorConfigTools.Data.SqLite", "src\Data.SqLite\Ploch.EditorConfigTools.Data.SqLite.csproj", "{E5D9BD52-2A6C-4BED-A0E5-D9BF1DCC29DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.EditorConfigTools.Processing", "src\Processing\Ploch.EditorConfigTools.Processing.csproj", "{25E4C1F9-1FA6-4D6F-8E04-2EC0E27FC6E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.EditorConfigTools.Processing", "src\Processing\Ploch.EditorConfigTools.Processing.csproj", "{25E4C1F9-1FA6-4D6F-8E04-2EC0E27FC6E9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B2E1F8A2-F373-4AA8-BF45-3FB1E5AA0B0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.EditorConfigTools.UseCases.IntegrationTests", "UseCases.IntegrationTests\Ploch.EditorConfigTools.UseCases.IntegrationTests.csproj", "{95D27DD1-DA4A-4436-BD39-57994AA356FA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{46F6DDE4-5728-458A-83F8-91AF7DC4978B}"
+	ProjectSection(SolutionItems) = preProject
+		.github\dependabot.yml = .github\dependabot.yml
+		.github\pull_request_template.md = .github\pull_request_template.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflow", "workflow", "{63BE5F09-57C8-4556-A9FC-C376FCA95BEA}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build-dotnet.yml = .github\workflows\build-dotnet.yml
+		.github\workflows\code_quality.yml = .github\workflows\code_quality.yml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.EditorConfigTools.UseCases.IntegrationTests", "tests\UseCases.IntegrationTests\Ploch.EditorConfigTools.UseCases.IntegrationTests.csproj", "{AD290918-3057-4655-83A6-80BC2D502DFA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.EditorConfigTools.Processing.Tests", "tests\Processing.Tests\Ploch.EditorConfigTools.Processing.Tests.csproj", "{29C00996-91C5-42E1-9EA7-3891C0571BDF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test-files", "test-files", "{884BE61A-2160-4661-AAC6-A62D5679814C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "simple", "simple", "{F40766A9-4920-4A3C-85D9-5B08FB6EEF8E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "single-file", "single-file", "{D11837D7-964F-4821-8906-ECE89AC93BC6}"
+	ProjectSection(SolutionItems) = preProject
+		tests\test-files\simple\single-file\.editorconfig = tests\test-files\simple\single-file\.editorconfig
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repository-config", "repository-config", "{17E15D4A-905F-4A19-99CE-F787846D6680}"
+	ProjectSection(SolutionItems) = preProject
+		..\ploch-data\.codacy.yml = ..\ploch-data\.codacy.yml
+		..\ploch-data\.dockerignore = ..\ploch-data\.dockerignore
+		..\ploch-data\.editorconfig = ..\ploch-data\.editorconfig
+		..\ploch-data\.gitattributes = ..\ploch-data\.gitattributes
+		..\ploch-data\.gitignore = ..\ploch-data\.gitignore
+		..\ploch-data\azure-pipelines.yml = ..\ploch-data\azure-pipelines.yml
+		..\ploch-data\Directory.Build.props = ..\ploch-data\Directory.Build.props
+		..\ploch-data\directory.build.targets = ..\ploch-data\directory.build.targets
+		..\ploch-data\Directory.Packages.props = ..\ploch-data\Directory.Packages.props
+		..\ploch-data\dotcover.settings.xml = ..\ploch-data\dotcover.settings.xml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.EditorConfigTools.Processing.IntegrationTests", "tests\Processing.IntegrationTests\Ploch.EditorConfigTools.Processing.IntegrationTests.csproj", "{2D886E4E-B360-41E3-A621-D8C57A11168D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{6680F805-978C-47D8-8F5D-E329C65DAE8D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repository-config", "repository-config", "{BAFACF39-8101-45CE-91BC-D24ACAFE8F89}"
+	ProjectSection(SolutionItems) = preProject
+		..\ploch-common\.codacy.yml = ..\ploch-common\.codacy.yml
+		..\ploch-common\.dockerignore = ..\ploch-common\.dockerignore
+		..\ploch-common\.editorconfig = ..\ploch-common\.editorconfig
+		..\ploch-common\.gitattributes = ..\ploch-common\.gitattributes
+		..\ploch-common\.gitignore = ..\ploch-common\.gitignore
+		..\ploch-common\azure-pipelines.yml = ..\ploch-common\azure-pipelines.yml
+		..\ploch-common\Directory.Build.props = ..\ploch-common\Directory.Build.props
+		..\ploch-common\Directory.Packages.props = ..\ploch-common\Directory.Packages.props
+		..\ploch-common\dotcover.settings.xml = ..\ploch-common\dotcover.settings.xml
+		..\ploch-common\dotnet-releaser.toml = ..\ploch-common\dotnet-releaser.toml
+		..\ploch-common\global.json = ..\ploch-common\global.json
+		..\ploch-common\Ploch.Common.Data.sln.DotSettings.user = ..\ploch-common\Ploch.Common.Data.sln.DotSettings.user
+		..\ploch-common\Ploch.Common.Shared.DotSettings = ..\ploch-common\Ploch.Common.Shared.DotSettings
+		..\ploch-common\Ploch.Common.sln.DotSettings = ..\ploch-common\Ploch.Common.sln.DotSettings
+		..\ploch-common\Ploch.Common.sln.DotSettings.user = ..\ploch-common\Ploch.Common.sln.DotSettings.user
+		..\ploch-common\qodana.sarif.json = ..\ploch-common\qodana.sarif.json
+		..\ploch-common\README.md = ..\ploch-common\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -160,14 +221,6 @@ Global
 		{F98A2E26-677F-4F8F-A65C-7B62EB6A0B46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F98A2E26-677F-4F8F-A65C-7B62EB6A0B46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F98A2E26-677F-4F8F-A65C-7B62EB6A0B46}.Release|Any CPU.Build.0 = Release|Any CPU
-		{785FF1A9-7C21-42A4-BA55-8CCCFC53FA05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{785FF1A9-7C21-42A4-BA55-8CCCFC53FA05}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{785FF1A9-7C21-42A4-BA55-8CCCFC53FA05}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{785FF1A9-7C21-42A4-BA55-8CCCFC53FA05}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D85E22D1-0F07-4209-A3ED-90BBFC586210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D85E22D1-0F07-4209-A3ED-90BBFC586210}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D85E22D1-0F07-4209-A3ED-90BBFC586210}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D85E22D1-0F07-4209-A3ED-90BBFC586210}.Release|Any CPU.Build.0 = Release|Any CPU
 		{54A6BDB2-B6FD-42CF-8818-9CC31E9CAAB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{54A6BDB2-B6FD-42CF-8818-9CC31E9CAAB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54A6BDB2-B6FD-42CF-8818-9CC31E9CAAB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -204,15 +257,28 @@ Global
 		{25E4C1F9-1FA6-4D6F-8E04-2EC0E27FC6E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25E4C1F9-1FA6-4D6F-8E04-2EC0E27FC6E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25E4C1F9-1FA6-4D6F-8E04-2EC0E27FC6E9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{95D27DD1-DA4A-4436-BD39-57994AA356FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{95D27DD1-DA4A-4436-BD39-57994AA356FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{95D27DD1-DA4A-4436-BD39-57994AA356FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{95D27DD1-DA4A-4436-BD39-57994AA356FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD290918-3057-4655-83A6-80BC2D502DFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD290918-3057-4655-83A6-80BC2D502DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD290918-3057-4655-83A6-80BC2D502DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD290918-3057-4655-83A6-80BC2D502DFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29C00996-91C5-42E1-9EA7-3891C0571BDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29C00996-91C5-42E1-9EA7-3891C0571BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29C00996-91C5-42E1-9EA7-3891C0571BDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29C00996-91C5-42E1-9EA7-3891C0571BDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D886E4E-B360-41E3-A621-D8C57A11168D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D886E4E-B360-41E3-A621-D8C57A11168D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D886E4E-B360-41E3-A621-D8C57A11168D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D886E4E-B360-41E3-A621-D8C57A11168D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{69941483-9056-4CF0-A3E4-5F5DDB5A2F50} = {A07F8C2C-F831-4502-93A3-F725231D648E}
 		{F4A8A2CF-CCE5-4908-86A4-FBB15197A30C} = {A07F8C2C-F831-4502-93A3-F725231D648E}
-		{ADCECFB7-65D0-4740-8217-F6B790D39247} = {A07F8C2C-F831-4502-93A3-F725231D648E}
+		{8E2525AA-CF31-47EC-AD06-EA817B481A84} = {A07F8C2C-F831-4502-93A3-F725231D648E}
+		{DD6D12AC-A60F-48C7-BF06-27D1408020F6} = {6680F805-978C-47D8-8F5D-E329C65DAE8D}
+		{ADCECFB7-65D0-4740-8217-F6B790D39247} = {6680F805-978C-47D8-8F5D-E329C65DAE8D}
 		{75637FCB-AB19-4779-A192-390E8B3AD61A} = {085670AF-62CB-4D76-AA16-C3754B0AF5F0}
 		{D6A9BF7B-F7E9-4763-9DC7-3DE9C97E7903} = {085670AF-62CB-4D76-AA16-C3754B0AF5F0}
 		{0D4AB516-32FD-484C-8DE8-748BD63DA308} = {085670AF-62CB-4D76-AA16-C3754B0AF5F0}
@@ -223,18 +289,26 @@ Global
 		{EF376270-5528-4204-B5D4-0DA5E34EBF86} = {085670AF-62CB-4D76-AA16-C3754B0AF5F0}
 		{D0AA8FAF-AFFD-4137-B93F-46F521CFD262} = {085670AF-62CB-4D76-AA16-C3754B0AF5F0}
 		{3834449E-2F15-47CE-A27C-A25FEC279775} = {956AAB92-3D7D-4679-B1A6-79F43411453D}
-		{785FF1A9-7C21-42A4-BA55-8CCCFC53FA05} = {085670AF-62CB-4D76-AA16-C3754B0AF5F0}
-		{D85E22D1-0F07-4209-A3ED-90BBFC586210} = {085670AF-62CB-4D76-AA16-C3754B0AF5F0}
 		{54A6BDB2-B6FD-42CF-8818-9CC31E9CAAB7} = {06272581-DF7B-4670-AD0F-94ABC06B2C51}
 		{78F7B36C-221F-4336-B08A-B756DA03D0D2} = {42CB0F66-23BA-4F65-8FC9-DF5AFCA374E9}
 		{62A3AE1F-E8D8-48CD-8600-231A8DDD7616} = {42CB0F66-23BA-4F65-8FC9-DF5AFCA374E9}
 		{F3A889F3-A9C6-4FDE-BFC7-FC64903C929D} = {42CB0F66-23BA-4F65-8FC9-DF5AFCA374E9}
 		{A6B76210-AB8D-4FE6-8A54-B0ECC5A62F73} = {42CB0F66-23BA-4F65-8FC9-DF5AFCA374E9}
-		{DD6D12AC-A60F-48C7-BF06-27D1408020F6} = {A07F8C2C-F831-4502-93A3-F725231D648E}
-		{8E2525AA-CF31-47EC-AD06-EA817B481A84} = {A07F8C2C-F831-4502-93A3-F725231D648E}
 		{C9403D79-AAAC-4A7F-BAFA-5765BDDE220D} = {42CB0F66-23BA-4F65-8FC9-DF5AFCA374E9}
 		{7C5BD5E9-222F-461A-BEBD-16345746858E} = {C9403D79-AAAC-4A7F-BAFA-5765BDDE220D}
-		{B2E1F8A2-F373-4AA8-BF45-3FB1E5AA0B0C} = {956AAB92-3D7D-4679-B1A6-79F43411453D}
-		{95D27DD1-DA4A-4436-BD39-57994AA356FA} = {B2E1F8A2-F373-4AA8-BF45-3FB1E5AA0B0C}
+		{46F6DDE4-5728-458A-83F8-91AF7DC4978B} = {956AAB92-3D7D-4679-B1A6-79F43411453D}
+		{63BE5F09-57C8-4556-A9FC-C376FCA95BEA} = {46F6DDE4-5728-458A-83F8-91AF7DC4978B}
+		{AD290918-3057-4655-83A6-80BC2D502DFA} = {B2E1F8A2-F373-4AA8-BF45-3FB1E5AA0B0C}
+		{29C00996-91C5-42E1-9EA7-3891C0571BDF} = {B2E1F8A2-F373-4AA8-BF45-3FB1E5AA0B0C}
+		{884BE61A-2160-4661-AAC6-A62D5679814C} = {B2E1F8A2-F373-4AA8-BF45-3FB1E5AA0B0C}
+		{F40766A9-4920-4A3C-85D9-5B08FB6EEF8E} = {884BE61A-2160-4661-AAC6-A62D5679814C}
+		{D11837D7-964F-4821-8906-ECE89AC93BC6} = {F40766A9-4920-4A3C-85D9-5B08FB6EEF8E}
+		{17E15D4A-905F-4A19-99CE-F787846D6680} = {085670AF-62CB-4D76-AA16-C3754B0AF5F0}
+		{2D886E4E-B360-41E3-A621-D8C57A11168D} = {B2E1F8A2-F373-4AA8-BF45-3FB1E5AA0B0C}
+		{6680F805-978C-47D8-8F5D-E329C65DAE8D} = {A07F8C2C-F831-4502-93A3-F725231D648E}
+		{BAFACF39-8101-45CE-91BC-D24ACAFE8F89} = {A07F8C2C-F831-4502-93A3-F725231D648E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3499AD95-2219-42A7-A6DC-BC7D358E45CE}
 	EndGlobalSection
 EndGlobal

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
+namespace Ploch.EditorConfigTools.Data.SqlServer.Migrations
 {
     /// <inheritdoc />
     public partial class Initial : Migration
@@ -51,31 +51,32 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ConfigSectionTypes",
+                name: "FilePatterns",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FilePattern = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    NormalizedExtensions = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    NamePattern = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    GlobPattern = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ConfigSectionTypes", x => x.Id);
+                    table.PrimaryKey("PK_FilePatterns", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "FileExtensions",
+                name: "FileTypes",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FileExtensions = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FileExtensions", x => x.Id);
+                    table.PrimaryKey("PK_FileTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -98,16 +99,18 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SettingDefinitions",
+                name: "SettingDefinitionGroup",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SettingNameRegex = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DefinitionGroupNameRegex = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SettingDefinitions", x => x.Id);
+                    table.PrimaryKey("PK_SettingDefinitionGroup", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -253,51 +256,68 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ConfigSectionTypeFileExtension",
+                name: "ConfigSectionTypes",
                 columns: table => new
                 {
-                    ConfigSectionTypesId = table.Column<int>(type: "int", nullable: false),
-                    FileExtensionsId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NormalizedExtensions = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    FilePatternId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ConfigSectionTypeFileExtension", x => new { x.ConfigSectionTypesId, x.FileExtensionsId });
+                    table.PrimaryKey("PK_ConfigSectionTypes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ConfigSectionTypeFileExtension_ConfigSectionTypes_ConfigSectionTypesId",
-                        column: x => x.ConfigSectionTypesId,
-                        principalTable: "ConfigSectionTypes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ConfigSectionTypeFileExtension_FileExtensions_FileExtensionsId",
-                        column: x => x.FileExtensionsId,
-                        principalTable: "FileExtensions",
+                        name: "FK_ConfigSectionTypes_FilePatterns_FilePatternId",
+                        column: x => x.FilePatternId,
+                        principalTable: "FilePatterns",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "SettingCategorySettingDefinition",
+                name: "FilePatternFileType",
                 columns: table => new
                 {
-                    CategoriesId = table.Column<int>(type: "int", nullable: false),
-                    SettingDefinitionsId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    FilePatternsId = table.Column<int>(type: "int", nullable: false),
+                    FileTypesId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SettingCategorySettingDefinition", x => new { x.CategoriesId, x.SettingDefinitionsId });
+                    table.PrimaryKey("PK_FilePatternFileType", x => new { x.FilePatternsId, x.FileTypesId });
                     table.ForeignKey(
-                        name: "FK_SettingCategorySettingDefinition_SettingCategories_CategoriesId",
-                        column: x => x.CategoriesId,
-                        principalTable: "SettingCategories",
+                        name: "FK_FilePatternFileType_FilePatterns_FilePatternsId",
+                        column: x => x.FilePatternsId,
+                        principalTable: "FilePatterns",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_SettingCategorySettingDefinition_SettingDefinitions_SettingDefinitionsId",
-                        column: x => x.SettingDefinitionsId,
-                        principalTable: "SettingDefinitions",
+                        name: "FK_FilePatternFileType_FileTypes_FileTypesId",
+                        column: x => x.FileTypesId,
+                        principalTable: "FileTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SettingDefinitions",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SettingNameRegex = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SettingDefinitionGroupId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SettingDefinitions", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_SettingDefinitions_SettingDefinitionGroup_SettingDefinitionGroupId",
+                        column: x => x.SettingDefinitionGroupId,
+                        principalTable: "SettingDefinitionGroup",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -346,6 +366,30 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "SettingCategorySettingDefinition",
+                columns: table => new
+                {
+                    CategoriesId = table.Column<int>(type: "int", nullable: false),
+                    SettingDefinitionsId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SettingCategorySettingDefinition", x => new { x.CategoriesId, x.SettingDefinitionsId });
+                    table.ForeignKey(
+                        name: "FK_SettingCategorySettingDefinition_SettingCategories_CategoriesId",
+                        column: x => x.CategoriesId,
+                        principalTable: "SettingCategories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_SettingCategorySettingDefinition_SettingDefinitions_SettingDefinitionsId",
+                        column: x => x.SettingDefinitionsId,
+                        principalTable: "SettingDefinitions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "SettingDefinitionValueDefinition",
                 columns: table => new
                 {
@@ -376,8 +420,9 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FilePattern = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GlobPattern = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ConfigSectionTypeId = table.Column<int>(type: "int", nullable: true),
+                    FilePatternId = table.Column<int>(type: "int", nullable: false),
                     EditorConfigFileId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -393,6 +438,12 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                         column: x => x.EditorConfigFileId,
                         principalTable: "EditorConfigFiles",
                         principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_ConfigSections_FilePatterns_FilePatternId",
+                        column: x => x.FilePatternId,
+                        principalTable: "FilePatterns",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -421,30 +472,6 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                         column: x => x.SettingDefinitionId,
                         principalTable: "SettingDefinitions",
                         principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ConfigSectionFileExtension",
-                columns: table => new
-                {
-                    ConfigSectionsId = table.Column<int>(type: "int", nullable: false),
-                    FileExtensionsId = table.Column<string>(type: "nvarchar(450)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ConfigSectionFileExtension", x => new { x.ConfigSectionsId, x.FileExtensionsId });
-                    table.ForeignKey(
-                        name: "FK_ConfigSectionFileExtension_ConfigSections_ConfigSectionsId",
-                        column: x => x.ConfigSectionsId,
-                        principalTable: "ConfigSections",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ConfigSectionFileExtension_FileExtensions_FileExtensionsId",
-                        column: x => x.FileExtensionsId,
-                        principalTable: "FileExtensions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -532,11 +559,6 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                 column: "SettingDefinitionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ConfigSectionFileExtension_FileExtensionsId",
-                table: "ConfigSectionFileExtension",
-                column: "FileExtensionsId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_ConfigSections_ConfigSectionTypeId",
                 table: "ConfigSections",
                 column: "ConfigSectionTypeId");
@@ -547,9 +569,14 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                 column: "EditorConfigFileId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ConfigSectionTypeFileExtension_FileExtensionsId",
-                table: "ConfigSectionTypeFileExtension",
-                column: "FileExtensionsId");
+                name: "IX_ConfigSections_FilePatternId",
+                table: "ConfigSections",
+                column: "FilePatternId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ConfigSectionTypes_FilePatternId",
+                table: "ConfigSectionTypes",
+                column: "FilePatternId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ConfigSectionTypes_NormalizedExtensions",
@@ -560,6 +587,11 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                 name: "IX_EditorConfigFiles_ProjectId",
                 table: "EditorConfigFiles",
                 column: "ProjectId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FilePatternFileType_FileTypesId",
+                table: "FilePatternFileType",
+                column: "FileTypesId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Projects_UserId",
@@ -575,6 +607,11 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                 name: "IX_SettingCategorySettingDefinition_SettingDefinitionsId",
                 table: "SettingCategorySettingDefinition",
                 column: "SettingDefinitionsId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SettingDefinitions_SettingDefinitionGroupId",
+                table: "SettingDefinitions",
+                column: "SettingDefinitionGroupId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_SettingDefinitionValueDefinition_ValueSettingDefinitionsId",
@@ -609,10 +646,7 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                 name: "Comment");
 
             migrationBuilder.DropTable(
-                name: "ConfigSectionFileExtension");
-
-            migrationBuilder.DropTable(
-                name: "ConfigSectionTypeFileExtension");
+                name: "FilePatternFileType");
 
             migrationBuilder.DropTable(
                 name: "SettingCategorySettingDefinition");
@@ -627,7 +661,7 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                 name: "ConfigEntries");
 
             migrationBuilder.DropTable(
-                name: "FileExtensions");
+                name: "FileTypes");
 
             migrationBuilder.DropTable(
                 name: "SettingCategories");
@@ -649,6 +683,12 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
 
             migrationBuilder.DropTable(
                 name: "EditorConfigFiles");
+
+            migrationBuilder.DropTable(
+                name: "SettingDefinitionGroup");
+
+            migrationBuilder.DropTable(
+                name: "FilePatterns");
 
             migrationBuilder.DropTable(
                 name: "Projects");

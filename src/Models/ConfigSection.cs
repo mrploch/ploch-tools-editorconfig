@@ -9,15 +9,15 @@ namespace Ploch.EditorConfigTools.Models;
 
 public class ConfigSection : IHasId<int>, IHasDescription
 {
-    public string? Description { get; set; }
-
     public int Id { get; set; }
 
-    public string? FilePattern { get; set; }
+    public string? Description { get; set; }
+
+    public string? GlobPattern { get; set; }
 
     public virtual ConfigSectionType? ConfigSectionType { get; set; }
 
-    public virtual ICollection<FileExtension>? FileExtensions { get; set; }
+    public virtual FilePattern FilePattern { get; set; } = null!;
 
     public virtual EditorConfigFile? EditorConfigFile { get; set; }
 

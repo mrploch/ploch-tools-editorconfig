@@ -1,33 +1,37 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
-namespace Ploch.EditorConfigTools.Processing
+namespace Ploch.EditorConfigTools.Processing;
+
+public static class SectionUtils
 {
-    public static class SectionUtils
+    private static readonly Regex FileExtensionsRegex = new(@"(?<pattern>.*)\.\{?((?<ext>[\w\+]+),?)*\}?", RegexOptions.Compiled);
+
+    public static (string, IEnumerable<string>) ParseFileExtensions(string sectionName)
     {
-        private static readonly Regex FileExtensionsRegex = new(@"\*\.\{?((?<ext>[\w\+]+),?)*\}?", RegexOptions.Compiled);
+        var matches = FileExtensionsRegex.Matches(sectionName);
+        var extensions = new List<string>();
 
-        public static IEnumerable<string> ParseFileExtensions(string sectionName)
+        var fileNamePattern = string.Empty;
+
+        foreach (Match match in matches)
         {
-            var matches = FileExtensionsRegex.Matches(sectionName);
-            var extensions = new List<string>();
-            foreach (Match match in matches)
+            var patternCaptures = match.Groups["pattern"].Captures;
+
+            fileNamePattern = patternCaptures.Count == 1 ? patternCaptures[0].Value : string.Empty;
+
+            foreach (Capture matchGroupCapture in match.Groups["ext"].Captures)
             {
-                foreach (Capture matchGroupCapture in match.Groups["ext"].Captures)
-                {
-                    extensions.Add(matchGroupCapture.Value);
-                }
+                extensions.Add(matchGroupCapture.Value);
             }
-
-            return extensions;
         }
 
-        public static string NormalizeSectionName(IEnumerable<string> fileExtensions)
-        {
-            var sortedExtensions = fileExtensions.Select(ext => ext.ToLower()).OrderBy(ext => ext);
+        return (fileNamePattern, extensions);
+    }
 
-            return string.Join(',', sortedExtensions);
-        }
+    public static string NormalizeSectionName(IEnumerable<string> fileExtensions)
+    {
+        var sortedExtensions = fileExtensions.Select(ext => ext.ToLower()).OrderBy(ext => ext);
+
+        return string.Join(',', sortedExtensions);
     }
 }

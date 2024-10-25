@@ -15,7 +15,6 @@ file_header_format = none
 ## Visual Studio Guidelines https://marketplace.visualstudio.com/items?itemName=PaulHarrington.EditorGuidelines
 guidelines = 160
 
-# RCS1169: Make field read-only.
 dotnet_diagnostic.rcs1169.severity = suggestion
 
 #### Core EditorConfig Options ####
@@ -67,7 +66,6 @@ csharp_style_conditional_delegate_call = true:suggestion
 
 # Modifier preferences
 csharp_prefer_static_local_function = true:suggestion
-csharp_preferred_modifier_order = public,private,protected,internal,static,extern,new,virtual,abstract,sealed,override,readonly,unsafe,volatile,async:silent
 
 # Code-block preferences
 csharp_prefer_braces = true:silent
@@ -279,11 +277,11 @@ dotnet_diagnostic.sa1413.severity = none
 dotnet_diagnostic.sa1600.severity = none
 dotnet_diagnostic.sa1623.severity = none
 dotnet_diagnostic.sa1640.severity = none
-; RCS1169: Make field read-only.
+# RCS1169: Make field read-only.
 dotnet_diagnostic.rcs1169.severity = warning
-; Standard properties
+# Standard properties
 dotnet_diagnostic.sa1200.severity = none
-;Element should not be on a single line
+# Element should not be on a single line
 dotnet_diagnostic.sa1502.severity = none
 dotnet_diagnostic.sa1633.severity = none
 dotnet_diagnostic.sa1128.severity = none

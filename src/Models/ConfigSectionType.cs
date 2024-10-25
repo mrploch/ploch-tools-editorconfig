@@ -17,11 +17,9 @@ public class ConfigSectionType : IHasId<int>, INamed, IHasDescription
 
     public string? Name { get; set; }
 
-    public string? FilePattern { get; set; }
-
     public string? NormalizedExtensions { get; set; }
 
-    public virtual ICollection<FileExtension>? FileExtensions { get; set; }
+    public virtual FilePattern FilePattern { get; set; } = null!;
 
     public virtual ICollection<ConfigSection>? ConfigSections { get; set; }
 }

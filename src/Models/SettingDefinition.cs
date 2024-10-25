@@ -28,4 +28,6 @@ public class SettingDefinition : IHasId<Guid>
     public virtual ICollection<SettingCategory>? Categories { get; set; }
 
     public virtual ICollection<ValueDefinition>? AllowedValues { get; set; }
+
+    public virtual SettingDefinitionGroup? SettingDefinitionGroup { get; set; }
 }

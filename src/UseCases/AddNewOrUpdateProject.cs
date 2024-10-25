@@ -1,14 +1,17 @@
-﻿using Ploch.Data.GenericRepository;
+﻿using System.IO.Abstractions;
+using Ploch.Data.GenericRepository;
 using Ploch.EditorConfigTools.Models;
 using Ploch.EditorConfigTools.Processing;
 
 namespace Ploch.EditorConfigTools.UseCases;
 
-public class AddNewOrUpdateProject(IReadWriteRepositoryAsync<Project, int> projectRepository, ProjectPathProcessor projectPathProcessor)
+public class AddNewOrUpdateProject(IUnitOfWork unitOfWork, ProjectPathProcessor projectPathProcessor) : IUseCase<AddNewOrUpdateProjectSettings>
 {
     public async Task ExecuteAsync(AddNewOrUpdateProjectSettings settings)
     {
-        var project = await projectRepository.GetAsync(p => p.Name == settings.ProjectName && p.Path == settings.ProjectPath);
+        var projectRepository = unitOfWork.Repository<Project, int>();
+
+        var project = await projectRepository.FindFirstAsync(p => p.Name == settings.ProjectName && p.Path == settings.ProjectPath);
 
         if (project == null)
         {
@@ -27,7 +30,10 @@ public class AddNewOrUpdateProject(IReadWriteRepositoryAsync<Project, int> proje
             project.Description = settings.Description;
             await projectRepository.UpdateAsync(project);
         }
-        
+
         await projectPathProcessor.ExecuteAsync(project);
+
+        await unitOfWork.CommitAsync();
     }
 }
+

@@ -1,6 +1,7 @@
 ﻿using System.IO.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 using Ploch.Common.CommandLine;
+using Ploch.Common.CommandLine.Serilog;
 using Ploch.Data.EFCore;
 using Ploch.Data.EFCore.SqlServer;
 using Ploch.Data.GenericRepository.EFCore;
@@ -28,5 +29,6 @@ await AppBuilder.CreateDefault(new CommandAppProperties(".editorconfig File Tool
 
         container.Application.Command<ProjectCommand>(command => command.Command<ProjectAddCommand>());
     })
+    .UseSerilog()
     .Build()
     .ExecuteAsync(args);

@@ -8,7 +8,7 @@ using Ploch.EditorConfigTools.DataAccess;
 
 #nullable disable
 
-namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
+namespace Ploch.EditorConfigTools.Data.SqlServer.Migrations
 {
     [DbContext(typeof(EditorConfigDbContext))]
     partial class EditorConfigDbContextModelSnapshot : ModelSnapshot
@@ -25,34 +25,19 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ConfigSectionFileExtension", b =>
+            modelBuilder.Entity("FilePatternFileType", b =>
                 {
-                    b.Property<int>("ConfigSectionsId")
+                    b.Property<int>("FilePatternsId")
                         .HasColumnType("int");
 
-                    b.Property<string>("FileExtensionsId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("ConfigSectionsId", "FileExtensionsId");
-
-                    b.HasIndex("FileExtensionsId");
-
-                    b.ToTable("ConfigSectionFileExtension");
-                });
-
-            modelBuilder.Entity("ConfigSectionTypeFileExtension", b =>
-                {
-                    b.Property<int>("ConfigSectionTypesId")
+                    b.Property<int>("FileTypesId")
                         .HasColumnType("int");
 
-                    b.Property<string>("FileExtensionsId")
-                        .HasColumnType("nvarchar(450)");
+                    b.HasKey("FilePatternsId", "FileTypesId");
 
-                    b.HasKey("ConfigSectionTypesId", "FileExtensionsId");
+                    b.HasIndex("FileTypesId");
 
-                    b.HasIndex("FileExtensionsId");
-
-                    b.ToTable("ConfigSectionTypeFileExtension");
+                    b.ToTable("FilePatternFileType");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -332,7 +317,10 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                     b.Property<int?>("EditorConfigFileId")
                         .HasColumnType("int");
 
-                    b.Property<string>("FilePattern")
+                    b.Property<int>("FilePatternId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("GlobPattern")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -340,6 +328,8 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                     b.HasIndex("ConfigSectionTypeId");
 
                     b.HasIndex("EditorConfigFileId");
+
+                    b.HasIndex("FilePatternId");
 
                     b.ToTable("ConfigSections");
                 });
@@ -355,8 +345,8 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FilePattern")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("FilePatternId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -365,6 +355,8 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FilePatternId");
 
                     b.HasIndex("NormalizedExtensions");
 
@@ -407,17 +399,48 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                     b.ToTable("EditorConfigFiles");
                 });
 
-            modelBuilder.Entity("Ploch.EditorConfigTools.Models.FileExtension", b =>
+            modelBuilder.Entity("Ploch.EditorConfigTools.Models.FilePattern", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("GlobPattern")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NamePattern")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
-                    b.ToTable("FileExtensions");
+                    b.ToTable("FilePatterns");
+                });
+
+            modelBuilder.Entity("Ploch.EditorConfigTools.Models.FileType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("FileExtensions")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FileTypes");
                 });
 
             modelBuilder.Entity("Ploch.EditorConfigTools.Models.Project", b =>
@@ -480,12 +503,41 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("SettingDefinitionGroupId")
+                        .HasColumnType("int");
+
                     b.Property<string>("SettingNameRegex")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("SettingDefinitionGroupId");
+
                     b.ToTable("SettingDefinitions");
+                });
+
+            modelBuilder.Entity("Ploch.EditorConfigTools.Models.SettingDefinitionGroup", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("DefinitionGroupNameRegex")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SettingDefinitionGroup");
                 });
 
             modelBuilder.Entity("Ploch.EditorConfigTools.Models.ValueDefinition", b =>
@@ -568,32 +620,17 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                     b.ToTable("SettingDefinitionValueDefinition");
                 });
 
-            modelBuilder.Entity("ConfigSectionFileExtension", b =>
+            modelBuilder.Entity("FilePatternFileType", b =>
                 {
-                    b.HasOne("Ploch.EditorConfigTools.Models.ConfigSection", null)
+                    b.HasOne("Ploch.EditorConfigTools.Models.FilePattern", null)
                         .WithMany()
-                        .HasForeignKey("ConfigSectionsId")
+                        .HasForeignKey("FilePatternsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Ploch.EditorConfigTools.Models.FileExtension", null)
+                    b.HasOne("Ploch.EditorConfigTools.Models.FileType", null)
                         .WithMany()
-                        .HasForeignKey("FileExtensionsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ConfigSectionTypeFileExtension", b =>
-                {
-                    b.HasOne("Ploch.EditorConfigTools.Models.ConfigSectionType", null)
-                        .WithMany()
-                        .HasForeignKey("ConfigSectionTypesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Ploch.EditorConfigTools.Models.FileExtension", null)
-                        .WithMany()
-                        .HasForeignKey("FileExtensionsId")
+                        .HasForeignKey("FileTypesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -689,9 +726,28 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                         .WithMany("ConfigSections")
                         .HasForeignKey("EditorConfigFileId");
 
+                    b.HasOne("Ploch.EditorConfigTools.Models.FilePattern", "FilePattern")
+                        .WithMany("ConfigSections")
+                        .HasForeignKey("FilePatternId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("ConfigSectionType");
 
                     b.Navigation("EditorConfigFile");
+
+                    b.Navigation("FilePattern");
+                });
+
+            modelBuilder.Entity("Ploch.EditorConfigTools.Models.ConfigSectionType", b =>
+                {
+                    b.HasOne("Ploch.EditorConfigTools.Models.FilePattern", "FilePattern")
+                        .WithMany("ConfigSectionTypes")
+                        .HasForeignKey("FilePatternId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("FilePattern");
                 });
 
             modelBuilder.Entity("Ploch.EditorConfigTools.Models.EditorConfigFile", b =>
@@ -721,6 +777,15 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                         .HasForeignKey("ParentId");
 
                     b.Navigation("Parent");
+                });
+
+            modelBuilder.Entity("Ploch.EditorConfigTools.Models.SettingDefinition", b =>
+                {
+                    b.HasOne("Ploch.EditorConfigTools.Models.SettingDefinitionGroup", "SettingDefinitionGroup")
+                        .WithMany("SettingDefinitions")
+                        .HasForeignKey("SettingDefinitionGroupId");
+
+                    b.Navigation("SettingDefinitionGroup");
                 });
 
             modelBuilder.Entity("Ploch.EditorConfigTools.Models.ValueDefinition", b =>
@@ -791,6 +856,13 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
                     b.Navigation("ConfigSections");
                 });
 
+            modelBuilder.Entity("Ploch.EditorConfigTools.Models.FilePattern", b =>
+                {
+                    b.Navigation("ConfigSectionTypes");
+
+                    b.Navigation("ConfigSections");
+                });
+
             modelBuilder.Entity("Ploch.EditorConfigTools.Models.Project", b =>
                 {
                     b.Navigation("EditorConfigFiles");
@@ -804,6 +876,11 @@ namespace Ploch.EditorConfigTools.Data.SqlServver.Migrations
             modelBuilder.Entity("Ploch.EditorConfigTools.Models.SettingDefinition", b =>
                 {
                     b.Navigation("ConfigEntries");
+                });
+
+            modelBuilder.Entity("Ploch.EditorConfigTools.Models.SettingDefinitionGroup", b =>
+                {
+                    b.Navigation("SettingDefinitions");
                 });
 
             modelBuilder.Entity("Ploch.EditorConfigTools.Models.ValueType", b =>

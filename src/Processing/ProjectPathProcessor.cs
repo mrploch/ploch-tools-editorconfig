@@ -5,7 +5,7 @@ namespace Ploch.EditorConfigTools.Processing;
 
 public class ProjectPathProcessor(IFileSystem fileSystem, EditorConfigFileProcessor fileProcessor)
 {
-    public async Task ExecuteAsync(Project project)
+    public Task ExecuteAsync(Project project)
     {
         var directoryInfo = fileSystem.DirectoryInfo.New(project.Path);
 
@@ -14,7 +14,7 @@ public class ProjectPathProcessor(IFileSystem fileSystem, EditorConfigFileProces
             throw new DirectoryNotFoundException($"Directory {project.Path} does not exist.");
         }
 
-        await ProcessPathAsync(directoryInfo, project);
+        return ProcessPathAsync(directoryInfo, project);
     }
 
     private async Task ProcessPathAsync(IDirectoryInfo directoryInfo, Project project)
@@ -23,9 +23,12 @@ public class ProjectPathProcessor(IFileSystem fileSystem, EditorConfigFileProces
 
         if (editorConfigFile != null)
         {
-            var file = new EditorConfigFile { FilePath = editorConfigFile.FullName, Name = editorConfigFile.FullName, Project = project };
-
-            project.EditorConfigFiles.Add(file);
+            var file = project.EditorConfigFiles.FirstOrDefault(f => f.FilePath == editorConfigFile.FullName);
+            if (file == null)
+            {
+                file = new EditorConfigFile { FilePath = editorConfigFile.FullName, Name = editorConfigFile.FullName, Project = project, ConfigSections = [] };
+                project.EditorConfigFiles.Add(file);
+            }
 
             await fileProcessor.ExecuteAsync(file);
         }
@@ -34,7 +37,7 @@ public class ProjectPathProcessor(IFileSystem fileSystem, EditorConfigFileProces
 
         foreach (var subDirectory in directories)
         {
-            ProcessPathAsync(subDirectory, project);
+            await ProcessPathAsync(subDirectory, project);
         }
     }
 }

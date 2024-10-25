@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Ploch.EditorConfigTools.UI.ConsoleUI": {
+      "commandName": "Project",
+      "commandLineArgs": "project add -n MyProject1 -p C:\\DevNet\\my\\github\\mrploch\\ploch-tools-editorconfig\\tests\\test-files\\complex"
+    }
+  }
+}
