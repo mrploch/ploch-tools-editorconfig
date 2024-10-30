@@ -7,11 +7,15 @@ using Ploch.Data.Model;
 
 namespace Ploch.EditorConfigTools.Models;
 
-public class ConfigSection : IHasId<int>, IHasDescription
+public class ConfigSection : IHasId<int>, IHasDescription, IHierarchicalParentChildrenComposite<ConfigSection>
 {
     public int Id { get; set; }
 
     public string? Description { get; set; }
+
+    public virtual ConfigSection? Parent { get; set; }
+
+    public virtual ICollection<ConfigSection>? Children { get; set; }
 
     public string? GlobPattern { get; set; }
 

@@ -1,28 +1,24 @@
-﻿using IniParser;
-using IniParser.Model;
-using Ploch.Data.GenericRepository;
+﻿using Ploch.Common.Collections;
 using Ploch.EditorConfigTools.Models;
+using KeyData = Ploch.IniParser.KeyData;
 
 namespace Ploch.EditorConfigTools.Processing;
-public class ConfigEntryProcessor(
-    IReadWriteRepositoryAsync<SettingDefinition, Guid> settingDefinitionRepository,
-    SettingDefinitionFactory settingDefinitionFactory,
-    ProcessingContext processingContext)
+
+public class ConfigEntryProcessor(SettingDefinitionFactory settingDefinitionFactory, ProcessingContext processingContext)
 {
     public async Task ExecuteAsync(ConfigEntry configEntry, KeyData keyData)
     {
         configEntry.OriginalValue = keyData.Value;
         configEntry.Value = keyData.Value;
-        configEntry.Modifier = keyData.KeyName;
+        configEntry.Modifier = keyData.Key;
 
-        var settingDefinition = await processingContext.GetSettingDefinitionAsync(keyData.KeyName);
+        var settingDefinition = await processingContext.GetSettingDefinitionAsync(keyData.Key);
 
         if (settingDefinition == null)
         {
-            settingDefinition = settingDefinitionFactory.Create(keyData.KeyName);
+            settingDefinition = settingDefinitionFactory.Create(keyData.Key);
 
             await processingContext.AddSettingDefinitionAsync(settingDefinition);
-            //await settingDefinitionRepository.AddAsync(settingDefinition);
         }
 
         configEntry.SettingDefinition = settingDefinition;

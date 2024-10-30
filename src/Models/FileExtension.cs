@@ -9,5 +9,5 @@ public class FileExtension : IHasId<string>, INamed, IHasDescription
 
     public string? Description { get; set; }
 
-    public FileType FileType { get; set; } = null!;
+    public virtual FileType FileType { get; set; } = null!;
 }

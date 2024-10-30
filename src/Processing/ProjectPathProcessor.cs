@@ -2,7 +2,6 @@
 using Ploch.EditorConfigTools.Models;
 
 namespace Ploch.EditorConfigTools.Processing;
-
 public class ProjectPathProcessor(IFileSystem fileSystem, EditorConfigFileProcessor fileProcessor)
 {
     public Task ExecuteAsync(Project project)
@@ -19,23 +18,24 @@ public class ProjectPathProcessor(IFileSystem fileSystem, EditorConfigFileProces
 
     private async Task ProcessPathAsync(IDirectoryInfo directoryInfo, Project project)
     {
-        var editorConfigFile = directoryInfo.GetFiles("*.editorconfig", SearchOption.TopDirectoryOnly).FirstOrDefault();
+        var editorConfigFile = directoryInfo.GetFiles(".editorconfig", SearchOption.TopDirectoryOnly).FirstOrDefault();
 
         if (editorConfigFile != null)
         {
             var file = project.EditorConfigFiles.FirstOrDefault(f => f.FilePath == editorConfigFile.FullName);
             if (file == null)
             {
-                file = new EditorConfigFile { FilePath = editorConfigFile.FullName, Name = editorConfigFile.FullName, Project = project, ConfigSections = [] };
+                file = new EditorConfigFile
+                       {
+                           FilePath = editorConfigFile.FullName, Name = editorConfigFile.FullName, Project = project, ConfigSections = []
+                       };
                 project.EditorConfigFiles.Add(file);
             }
 
             await fileProcessor.ExecuteAsync(file);
         }
 
-        var directories = directoryInfo.GetDirectories();
-
-        foreach (var subDirectory in directories)
+        foreach (var subDirectory in directoryInfo.GetDirectories())
         {
             await ProcessPathAsync(subDirectory, project);
         }

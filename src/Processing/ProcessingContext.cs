@@ -49,8 +49,7 @@ public class ProcessingContext(IUnitOfWork unitOfWork)
     {
         return _fileTypes.TryGetValue(fileExtension, out var fileType)
             ? fileType
-            : (await _fileExtensionRepository.GetByIdAsync(fileExtension, dbSet => dbSet.Include(q => q.FileType),
-                cancellationToken))?.FileType;
+            : (await _fileExtensionRepository.GetByIdAsync(fileExtension, dbSet => dbSet.Include(q => q.FileType), cancellationToken))?.FileType;
     }
 
     public void AddFileType(string fileExtension, FileType fileType)

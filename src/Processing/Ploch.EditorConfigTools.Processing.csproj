@@ -9,6 +9,7 @@
     <ItemGroup>
         <ProjectReference Include="..\..\..\ploch-common\src\Common\Ploch.Common.csproj" />
         <ProjectReference Include="..\..\..\ploch-data\src\Data.GenericRepository\Data.GenericRepository\Ploch.Data.GenericRepository.csproj" />
+        <ProjectReference Include="..\..\..\ploch-ini-parser\src\IniParser\Ploch.IniParser.csproj" />
         <ProjectReference Include="..\Models\Ploch.EditorConfigTools.Models.csproj" />
     </ItemGroup>
 
