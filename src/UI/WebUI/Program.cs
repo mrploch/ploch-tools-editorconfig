@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Ploch.Data.GenericRepository.EFCore;
 using Ploch.EditorConfigTools.DataAccess;
 using Ploch.EditorConfigTools.Models;
 
@@ -8,7 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
                        throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<EditorConfigDbContext>(options =>
-                                                         options.UseSqlite(connectionString));
+                                                         options.UseSqlServer(connectionString))
+       .AddRepositories<EditorConfigDbContext>();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)

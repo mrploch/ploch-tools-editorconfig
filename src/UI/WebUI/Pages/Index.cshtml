@@ -3,8 +3,22 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<div class="container-fluid p-5 bg-primary text-white text-center">
+    <h1>.editorconfig Tools</h1>
+    <p>Developer tools for .editorconfig files/</p>
+</div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container p-5 my-5 border">
+    <h1>Your Projects</h1>
+    <ul>
+        @if (Model.UserProjects != null)
+        {
+            @foreach (var project in Model.UserProjects)
+            {
+                <li>
+                    @project.Name <a class="text-decoration-none" asp-page="OpenProject" asp-route-projectId="@project.Id">open</a>
+                </li>
+            }
+        }
+    </ul>
 </div>

@@ -23,6 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\..\..\ploch-data\src\Data.GenericRepository\Data.GenericRepository.EFCore\Ploch.Data.GenericRepository.EFCore.csproj"/>
         <ProjectReference Include="..\..\Data.SqlServver\Ploch.EditorConfigTools.Data.SqlServer.csproj"/>
         <ProjectReference Include="..\..\UseCases\Ploch.EditorConfigTools.UseCases.csproj"/>
     </ItemGroup>
