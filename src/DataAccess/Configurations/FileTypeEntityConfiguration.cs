@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Ploch.EditorConfigTools.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Ploch.EditorConfigTools.Models;
 
 namespace Ploch.EditorConfigTools.DataAccess.Configurations;
+
 public class FileTypeEntityConfiguration : IEntityTypeConfiguration<FileType>
 {
     public void Configure(EntityTypeBuilder<FileType> builder)

@@ -9,38 +9,38 @@
 <h1>Create</h1>
 
 <h4>EditorConfigFile</h4>
-<hr />
+<hr/>
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="EditorConfigFile.Description" class="control-label"></label>
-                <input asp-for="EditorConfigFile.Description" class="form-control" />
+                <input asp-for="EditorConfigFile.Description" class="form-control"/>
                 <span asp-validation-for="EditorConfigFile.Description" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EditorConfigFile.Name" class="control-label"></label>
-                <input asp-for="EditorConfigFile.Name" class="form-control" />
+                <input asp-for="EditorConfigFile.Name" class="form-control"/>
                 <span asp-validation-for="EditorConfigFile.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EditorConfigFile.FilePath" class="control-label"></label>
-                <input asp-for="EditorConfigFile.FilePath" class="form-control" />
+                <input asp-for="EditorConfigFile.FilePath" class="form-control"/>
                 <span asp-validation-for="EditorConfigFile.FilePath" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="EditorConfigFile.IsRoot" /> @Html.DisplayNameFor(model => model.EditorConfigFile.IsRoot)
+                    <input class="form-check-input" asp-for="EditorConfigFile.IsRoot"/> @Html.DisplayNameFor(model => model.EditorConfigFile.IsRoot)
                 </label>
             </div>
             <div class="form-group">
                 <label asp-for="EditorConfigFile.FileHash" class="control-label"></label>
-                <input asp-for="EditorConfigFile.FileHash" class="form-control" />
+                <input asp-for="EditorConfigFile.FileHash" class="form-control"/>
                 <span asp-validation-for="EditorConfigFile.FileHash" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary"/>
             </div>
         </form>
     </div>
@@ -51,5 +51,5 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }

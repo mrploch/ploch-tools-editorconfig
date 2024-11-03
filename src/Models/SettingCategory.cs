@@ -7,7 +7,8 @@ using Ploch.Data.Model;
 
 namespace Ploch.EditorConfigTools.Models;
 
-public class SettingCategory : IHasId<int>, INamed, IHierarchicalWithParentComposite<SettingCategory>, IHierarchicalWithChildrenComposite<SettingCategory>
+public class SettingCategory : IHasId<int>, INamed, IHierarchicalWithParentComposite<SettingCategory>,
+                               IHierarchicalWithChildrenComposite<SettingCategory>
 {
     public int Id { get; set; }
 

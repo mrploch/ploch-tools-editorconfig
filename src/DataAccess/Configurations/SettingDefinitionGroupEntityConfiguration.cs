@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Ploch.EditorConfigTools.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Ploch.EditorConfigTools.Models;
 
 namespace Ploch.EditorConfigTools.DataAccess.Configurations;
+
 public class SettingDefinitionGroupEntityConfiguration : IEntityTypeConfiguration<SettingDefinitionGroup>
 {
     public void Configure(EntityTypeBuilder<SettingDefinitionGroup> builder)

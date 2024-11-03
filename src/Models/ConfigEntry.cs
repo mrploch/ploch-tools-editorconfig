@@ -22,6 +22,6 @@ public record ConfigEntry : IHasId<int>, INamed, IHasValue<string>
     public string? Modifier { get; set; }
 
     public string? OriginalValue { get; set; }
-    
+
     public virtual ICollection<Comment>? Comments { get; set; }
 }

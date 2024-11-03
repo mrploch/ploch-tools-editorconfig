@@ -21,7 +21,7 @@ public class EditorConfigDbContextFactory : BaseDbContextFactory<EditorConfigDbC
     { }
 
     protected override DbContextOptionsBuilder<EditorConfigDbContext> ConfigureOptions(Func<string> connectionStringFunc,
-        DbContextOptionsBuilder<EditorConfigDbContext> optionsBuilder)
+                                                                                       DbContextOptionsBuilder<EditorConfigDbContext> optionsBuilder)
     {
         return optionsBuilder.UseSqlServer(connectionStringFunc(), ApplyMigrationsAssembly);
     }
