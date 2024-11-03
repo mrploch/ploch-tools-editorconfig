@@ -1,0 +1,57 @@
+﻿@page
+@model EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h4>Edit .editorconfig File</h4>
+<hr/>
+
+<form class="row g-3" method="post">
+    <fieldset id="infoFieldSet" class="border p-3 ms-2 mt-4 mb-5" style="width: 78em;">
+        <legend class="float-none w-auto px-1" id="infoLegend">
+            File Properties
+        </legend>
+        <input type="hidden" asp-for="EditorConfigFile.Id"/>
+        <div class="mb-3">
+            <label asp-for="EditorConfigFile.Name" class="form-label">Name</label>
+            <input asp-for="EditorConfigFile.Name" type="text" class="form-control" style="width: 68em;" id="name" aria-describedby="Name" >
+            <span asp-validation-for="EditorConfigFile.Name" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="EditorConfigFile.Description" class="form-label">Description</label>
+            <input asp-for="EditorConfigFile.Description" type="text" class="form-control" style="width: 68em;;" id="editorConfigFileDescription" value="@Model.EditorConfigFile.Description">
+        </div>
+        <div class="mb-3 form-check">
+            <input asp-for="EditorConfigFile.IsRoot" type="checkbox" class="form-check-input" id="editorConfigFileIsRoot" checked="@Model.EditorConfigFile.IsRoot">
+            <label asp-for="EditorConfigFile.IsRoot" class="form-check-label">Is Root</label>
+        </div>
+        <div class="mb-3">
+            <label asp-for="EditorConfigFile.FilePath" class="form-label">File Path</label>
+            <input asp-for="EditorConfigFile.FilePath" type="text" class="form-control" style="width: 68em;" id="editorConfigFilePath">
+        </div>
+        <div class="mb-3">
+            <label asp-for="EditorConfigFile.FileHash" class="form-label">File Hash</label>
+            <input asp-for="EditorConfigFile.FileHash" type="text" class="form-control" style="width: 68em;" id="editorConfigFileHash">
+            <span asp-validation-for="EditorConfigFile.FileHash" class="text-danger"></span>
+        </div>
+    </fieldset>
+
+    <div class="row">
+        <div class="col-auto ms-2">
+            <button id="post" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+</form>
+
+<div>
+    <a asp-page="./Index" asp-route-projectId="@Model.EditorConfigFile.ProjectId">Back to List</a>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

@@ -8,6 +8,76 @@
     <p>Developer tools for .editorconfig files/</p>
 </div>
 <div class="container-fluid p-5 bg-primary text-white text-center">
-    <h1>Project: </h1>
-    <p>Resize this responsive page to see the effect!</p>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Project: @Model.Project.Name</h5>
+            
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h6 class="card-title">.editorconfig Files:</h6>
+            @{
+                var commands = new List<object>();
+                commands.Add(new { type = "Open", buttonOption = new { iconCss = "e-icons e-folder-open", cssClass = "e-flat" } });
+                commands.Add(new { type = "Delete", buttonOption = new { iconCss = "e-icons e-delete", cssClass = "e-flat" } });
+                commands.Add(new { type = "Details", buttonOption = new { iconCss = "e-icons e-menu", cssClass = "e-flat" } }); // custom;
+            }
+            <div>
+                <ejs-grid id="Grid" dataSource="@Model.EditorConfigFiles" commandClick="OnCommand">
+                    <e-grid-columns>
+                        <e-grid-column field="Name" headerText="Name" type="string" width="150"></e-grid-column>
+                        <e-grid-column field="FilePath" headerText="File Path" type="string" width="140"></e-grid-column>
+                        <e-grid-column commands="commands" width="150"/>
+                    </e-grid-columns>
+                </ejs-grid>
+                <a class="text-white" href="@Url.Page("./EditorConfigFiles/Index", new { projectId = Model.Project.Id })">Manage .editorconfig Files</a>
+            </div>
+        </div>
+    </div>
 </div>
+<div class="container-fluid">
+    <div class="card text-dark bg-light mb-3" style="display: @(Model.EditorConfigFileDetails != null ? "block" : "none");">
+        <div class="card-header">
+            Editor Config File Details
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                <strong>Id:</strong> @Model.EditorConfigFileDetails?.Id <br/>
+                <strong>Name:</strong> @Model.EditorConfigFileDetails?.Name <br/>
+                <string>Description:</string> @Model.EditorConfigFileDetails?.Description <br/>
+                <strong>File Path:</strong> @Model.EditorConfigFileDetails?.FilePath <br/>
+                <strong>File Hash:</strong> @Model.EditorConfigFileDetails?.FileHash <br/>
+                <strong>Is Root:</strong> @Model.EditorConfigFileDetails?.IsRoot <br/>
+                <strong>Config Sections Count:</strong> @Model.EditorConfigFileDetails?.ConfigSections.Count <br/>
+            </p>
+            <p>
+                <a class="text-start link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="@Url.Page("./EditorConfigFiles/Index", new { projectId = 1})">Go to .editorconfig files management</a>
+            </p>
+        </div>
+        
+    </div>
+    @*<div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+            <h5 class="card-title">Light card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+    </div>*@
+</div>
+<script>
+    function OnCommand(args) {
+        if (args.commandColumn.type === "Edit") {
+            alert("Edit");
+        }
+        if (args.commandColumn.type === "Delete") {
+            alert("Delete");
+        }
+        if (args.commandColumn.type === "Details") {
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = urlParams.get('projectId');
+            window.location.href = "OpenProject?handler=Details&editorConfigFileId=" + args.rowData.Id + "&projectId=" + projectId
+                document.getElementById('dynamicPanel').style.display = 'block';
+        }
+    }
+</script>

@@ -9,7 +9,6 @@
     <ItemGroup>
         <ProjectReference Include="..\..\..\ploch-common\src\Common\Ploch.Common.csproj" />
         <ProjectReference Include="..\..\..\ploch-data\src\Data.GenericRepository\Data.GenericRepository\Ploch.Data.GenericRepository.csproj" />
-        <ProjectReference Include="..\..\..\ploch-ini-parser\src\IniParser\Ploch.IniParser.csproj" />
         <ProjectReference Include="..\Models\Ploch.EditorConfigTools.Models.csproj" />
     </ItemGroup>
 
@@ -18,6 +17,8 @@
         <PackageReference Include="ini-parser-new" Version="2.6.2" />
 
         <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="8.0.10" />
+
+        <PackageReference Include="Ploch.IniParser" Version="1.0.2" />
 
         <PackageReference Include="TestableIO.System.IO.Abstractions" Version="21.0.29" />
 

@@ -16,33 +16,33 @@ public class ProcessingContext(IUnitOfWork unitOfWork)
 
     private readonly Dictionary<string, SettingDefinition> _settingDefinitions = [];
 
-    public async Task<SettingDefinition?> GetSettingDefinitionAsync(string sectionName)
+    public async Task<SettingDefinition?> GetSettingDefinitionAsync(string sectionName, CancellationToken cancellationToken = default)
     {
         var section = _settingDefinitions.TryGetValue(sectionName, out var definition)
             ? definition
-            : await _settingDefinitionRepository.FindFirstAsync(q => q.Name == sectionName);
+            : await _settingDefinitionRepository.FindFirstAsync(q => q.Name == sectionName, cancellationToken: cancellationToken);
         return section;
     }
 
-    public Task AddSettingDefinitionAsync(SettingDefinition settingDefinition)
+    public Task AddSettingDefinitionAsync(SettingDefinition settingDefinition, CancellationToken cancellationToken = default)
     {
         _settingDefinitions.Add(settingDefinition.Name, settingDefinition);
 
-        return _settingDefinitionRepository.AddAsync(settingDefinition);
+        return _settingDefinitionRepository.AddAsync(settingDefinition, cancellationToken);
     }
 
-    public async Task<FilePattern?> GetFilePatternAsync(string globPattern)
+    public async Task<FilePattern?> GetFilePatternAsync(string globPattern, CancellationToken cancellationToken = default)
     {
         return _filePatterns.TryGetValue(globPattern, out var extension)
             ? extension
-            : await _filePatternRepository.FindFirstAsync(q => q.GlobPattern == globPattern);
+            : await _filePatternRepository.FindFirstAsync(q => q.GlobPattern == globPattern, cancellationToken: cancellationToken);
     }
 
-    public Task AddFilePatternAsync(FilePattern filePattern)
+    public Task AddFilePatternAsync(FilePattern filePattern, CancellationToken cancellationToken = default)
     {
         _filePatterns.TryAdd(filePattern.GlobPattern, filePattern);
 
-        return _filePatternRepository.AddAsync(filePattern);
+        return _filePatternRepository.AddAsync(filePattern, cancellationToken);
     }
 
     public async Task<FileType?> GetFileTypeAsync(string fileExtension, CancellationToken cancellationToken = default)
@@ -55,6 +55,10 @@ public class ProcessingContext(IUnitOfWork unitOfWork)
     public void AddFileType(string fileExtension, FileType fileType)
     {
         _fileTypes.TryAdd(fileExtension, fileType);
-        _fileTypeRepository.AddAsync(fileType);
+
+        if (fileType.Id == default)
+        {
+            _fileTypeRepository.AddAsync(fileType);
+        }
     }
 }

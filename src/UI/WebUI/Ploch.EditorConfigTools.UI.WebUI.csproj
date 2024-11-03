@@ -9,23 +9,73 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.10"/>
-        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.10"/>
-        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.10"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.10"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.10"/>
+        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.10" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.10" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.10" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.10" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.10" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
+        <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="27.1.57" />
     </ItemGroup>
 
     <ItemGroup>
         <Content Include="..\..\..\.dockerignore">
             <Link>.dockerignore</Link>
         </Content>
+        <Content Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
+        <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+        <Content Remove="wwwroot\lib\bootstrap\LICENSE" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\..\ploch-data\src\Data.GenericRepository\Data.GenericRepository.EFCore\Ploch.Data.GenericRepository.EFCore.csproj"/>
-        <ProjectReference Include="..\..\Data.SqlServver\Ploch.EditorConfigTools.Data.SqlServer.csproj"/>
-        <ProjectReference Include="..\..\UseCases\Ploch.EditorConfigTools.UseCases.csproj"/>
+        <ProjectReference Include="..\..\..\..\ploch-data\src\Data.GenericRepository\Data.GenericRepository.EFCore\Ploch.Data.GenericRepository.EFCore.csproj" />
+        <ProjectReference Include="..\..\Data.SqlServver\Ploch.EditorConfigTools.Data.SqlServer.csproj" />
+        <ProjectReference Include="..\..\UseCases\Ploch.EditorConfigTools.UseCases.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="wwwroot\lib\bootstrap\dist\css\" />
+      <Folder Include="wwwroot\lib\bootstrap\dist\js\" />
     </ItemGroup>
 
 </Project>

@@ -1,0 +1,76 @@
+﻿@page
+@model DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>EditorConfigFile</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EditorConfigFile.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EditorConfigFile.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EditorConfigFile.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EditorConfigFile.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EditorConfigFile.FilePath)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EditorConfigFile.FilePath)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EditorConfigFile.IsRoot)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EditorConfigFile.IsRoot)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EditorConfigFile.FileHash)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EditorConfigFile.FileHash)
+        </dd>
+    </dl>
+</div>
+<div class="card">
+    <div class="card-body">
+        <h6 class="card-title">.editorconfig Files:</h6>
+        <div >
+            <ejs-grid id="Grid" dataSource="@Model.AllConfigEntries">
+                <e-grid-columns>
+                    <e-grid-column field="Name" headerText="Name" type="string" width="150"></e-grid-column>
+                    <e-grid-column field="Value" headerText="Value" type="string" width="140"></e-grid-column>
+                    <e-grid-column field="ConfigSectionGlob" headerText="Config Section Glob" type="string" width="140"></e-grid-column>
+                    <e-grid-column field="JoinedComments" headerText="Comments" type="string" width="180"></e-grid-column>
+                </e-grid-columns>
+            </ejs-grid>
+        </div>
+        
+        @*<div>
+            <ejs-grid id="Grid2" dataSource="@Model.AllConfigEntries">
+                <e-grid-columns>
+                    <e-grid-column field="Name" headerText="Name" type="string" width="150"></e-grid-column>
+                    <e-grid-column field="Value" headerText="Value" type="string" width="140"></e-grid-column>
+                    <e-grid-column field="ConfigSectionGlob" headerText="Config Section Glob" type="string" width="140"></e-grid-column>
+                    <e-grid-column field="JoinedComments" headerText="Comments" type="string" width="180"></e-grid-column>
+                </e-grid-columns>
+            </ejs-grid>
+        </div>*@
+    </div>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.EditorConfigFile.Id">Edit</a> |
+    <a asp-page="./Index" asp-route-projectId="@Model.EditorConfigFile.Project.Id">Back to List</a>
+</div>

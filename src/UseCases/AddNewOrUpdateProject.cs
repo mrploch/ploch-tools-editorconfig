@@ -1,13 +1,11 @@
-﻿using System.IO.Abstractions;
-using Ploch.Data.GenericRepository;
+﻿using Ploch.Data.GenericRepository;
 using Ploch.EditorConfigTools.Models;
 using Ploch.EditorConfigTools.Processing;
 
 namespace Ploch.EditorConfigTools.UseCases;
-
 public class AddNewOrUpdateProject(IUnitOfWork unitOfWork, ProjectPathProcessor projectPathProcessor) : IUseCase<AddNewOrUpdateProjectSettings>
 {
-    public async Task ExecuteAsync(AddNewOrUpdateProjectSettings settings)
+    public async Task ExecuteAsync(AddNewOrUpdateProjectSettings settings, CancellationToken cancellationToken = default)
     {
         var projectRepository = unitOfWork.Repository<Project, int>();
 
@@ -16,12 +14,12 @@ public class AddNewOrUpdateProject(IUnitOfWork unitOfWork, ProjectPathProcessor 
         if (project == null)
         {
             project = new Project
-            {
-                Name = settings.ProjectName,
-                Description = settings.Description,
-                Path = settings.ProjectPath ?? throw new InvalidOperationException("Project path must be provided."),
-                EditorConfigFiles = new List<EditorConfigFile>()
-            };
+                      {
+                          Name = settings.ProjectName,
+                          Description = settings.Description,
+                          Path = settings.ProjectPath ?? throw new InvalidOperationException("Project path must be provided."),
+                          EditorConfigFiles = new List<EditorConfigFile>()
+                      };
 
             await projectRepository.AddAsync(project);
         }
@@ -36,4 +34,3 @@ public class AddNewOrUpdateProject(IUnitOfWork unitOfWork, ProjectPathProcessor 
         await unitOfWork.CommitAsync();
     }
 }
-

@@ -9,16 +9,21 @@
 </div>
 
 <div class="container p-5 my-5 border">
-    <h1>Your Projects</h1>
-    <ul>
-        @if (Model.UserProjects != null)
-        {
-            @foreach (var project in Model.UserProjects)
-            {
-                <li>
-                    @project.Name <a class="text-decoration-none" asp-page="OpenProject" asp-route-projectId="@project.Id">open</a>
-                </li>
-            }
-        }
-    </ul>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Your Projects</h5>
+            <ul class="card-text">
+                @if (Model.UserProjects != null)
+                {
+                    @foreach (var project in Model.UserProjects)
+                    {
+                        <li>
+                            @project.Name <a class="text-decoration-none" asp-page="OpenProject" asp-route-projectId="@project.Id">open</a>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+        
+    </div>
 </div>

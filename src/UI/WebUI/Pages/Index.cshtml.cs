@@ -1,21 +1,33 @@
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Ploch.EditorConfigTools.Models;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Ploch.EditorConfigTools.UI.WebUI.Pages;
-
 public class IndexModel(UserManager<ApplicationUser> userManager, ILogger<IndexModel> logger) : PageModel
 {
     public IEnumerable<Project>? UserProjects { get; set; }
 
-    public void OnGet()
+    public async Task OnGetAsync()
     {
         var userId = userManager.GetUserId(User);
-        var applicationUser = userManager.Users.FirstOrDefault(u => u.Id == userId);
+        if (userId == null)
+        {
+            logger.LogTrace("User not logged in");
 
-        if (applicationUser.Projects != null)
+            return;
+        }
+
+        var applicationUser = await userManager.Users.FirstOrDefaultAsync(u => u.Id == userId);
+
+        if (applicationUser?.Projects != null)
         {
             UserProjects = applicationUser.Projects;
         }
+    }
+
+    public async Task OnGetButtonClick()
+    {
+        logger.LogInformation("Button clicked");
     }
 }

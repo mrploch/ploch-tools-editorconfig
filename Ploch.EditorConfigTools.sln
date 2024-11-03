@@ -166,16 +166,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1_1", "1_1", "{F50C2577-FF8
 		tests\test-files\complex\1\1_1\.editorconfig = tests\test-files\complex\1\1_1\.editorconfig
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ini-parser", "ini-parser", "{35393D0B-03D6-4857-9E7D-ED3D6D908C68}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.IniParser", "..\ploch-ini-parser\src\IniParser\Ploch.IniParser.csproj", "{1814C70E-E194-4C06-9B01-7C1CE33F165D}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "clean-dotnet", "clean-dotnet", "{FF218C8D-B9D6-421A-87B2-DF374732CB8C}"
 	ProjectSection(SolutionItems) = preProject
 		tests\test-files\clean-dotnet\editorconfig.txt = tests\test-files\clean-dotnet\editorconfig.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ploch.EditorConfigTools.UI.WebUI", "src\UI\WebUI\Ploch.EditorConfigTools.UI.WebUI.csproj", "{BDF8F618-6287-4E0B-9022-FA06F460D7AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ploch.EditorConfigTools.UI.WebUI", "src\UI\WebUI\Ploch.EditorConfigTools.UI.WebUI.csproj", "{BDF8F618-6287-4E0B-9022-FA06F460D7AD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0952FBB0-0F49-49B8-85E4-E413EB3445A1}"
 	ProjectSection(SolutionItems) = preProject
@@ -304,10 +300,6 @@ Global
 		{2D886E4E-B360-41E3-A621-D8C57A11168D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D886E4E-B360-41E3-A621-D8C57A11168D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D886E4E-B360-41E3-A621-D8C57A11168D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1814C70E-E194-4C06-9B01-7C1CE33F165D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1814C70E-E194-4C06-9B01-7C1CE33F165D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1814C70E-E194-4C06-9B01-7C1CE33F165D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1814C70E-E194-4C06-9B01-7C1CE33F165D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BDF8F618-6287-4E0B-9022-FA06F460D7AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BDF8F618-6287-4E0B-9022-FA06F460D7AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDF8F618-6287-4E0B-9022-FA06F460D7AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -355,7 +347,6 @@ Global
 		{B4126A1F-B6E2-4453-B442-4349622C3403} = {E895542A-B414-4C23-B568-781411B4304B}
 		{E0217F96-7C79-477A-9763-30AE2B641FE1} = {5FDC06ED-2BFE-4273-A340-D2EF9F737ECE}
 		{F50C2577-FF8D-4675-A9B4-3CA1CE1401C3} = {E0217F96-7C79-477A-9763-30AE2B641FE1}
-		{1814C70E-E194-4C06-9B01-7C1CE33F165D} = {35393D0B-03D6-4857-9E7D-ED3D6D908C68}
 		{FF218C8D-B9D6-421A-87B2-DF374732CB8C} = {884BE61A-2160-4661-AAC6-A62D5679814C}
 		{BDF8F618-6287-4E0B-9022-FA06F460D7AD} = {06272581-DF7B-4670-AD0F-94ABC06B2C51}
 	EndGlobalSection

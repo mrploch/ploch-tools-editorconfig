@@ -1,13 +1,12 @@
-﻿using System.IO.Abstractions;
-using System.Security;
-using Microsoft.Extensions.Logging;
-using Ploch.Common.Cryptography;
+﻿using System.Security;
 using Ploch.IniParser;
+using System.IO.Abstractions;
+using Ploch.Common.Cryptography;
+using Microsoft.Extensions.Logging;
 using ConfigSection = Ploch.EditorConfigTools.Models.ConfigSection;
 using EditorConfigFile = Ploch.EditorConfigTools.Models.EditorConfigFile;
 
 namespace Ploch.EditorConfigTools.Processing;
-
 public class EditorConfigFileProcessor(SectionProcessor sectionProcessor, IFileSystem fileSystem, ILogger<EditorConfigFileProcessor> logger)
 {
     /// <summary>
@@ -15,6 +14,7 @@ public class EditorConfigFileProcessor(SectionProcessor sectionProcessor, IFileS
     ///     and updating the provided EditorConfigFile instance with the parsed data.
     /// </summary>
     /// <param name="editorConfigFile">The EditorConfigFile instance to be processed and updated.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>A Task representing the asynchronous operation.</returns>
     /// <exception cref="SecurityException">The caller does not have the required permission.</exception>
     /// <exception cref="ArgumentException">
@@ -40,11 +40,17 @@ public class EditorConfigFileProcessor(SectionProcessor sectionProcessor, IFileS
     /// </exception>
     /// <exception cref="UnauthorizedAccessException">Path for editorconfig specifies a file that is read-only.</exception>
     /// <exception cref="DirectoryNotFoundException">The specified path is invalid, such as being on an unmapped drive.</exception>
-    public async Task ExecuteAsync(EditorConfigFile editorConfigFile)
+    public async Task ExecuteAsync(EditorConfigFile editorConfigFile, CancellationToken cancellationToken = default)
     {
-        using var fileStream = fileSystem.FileStream.New(editorConfigFile.FilePath, FileMode.Open);
+        await using var fileStream = fileSystem.FileStream.New(editorConfigFile.FilePath, FileMode.Open);
+
+        await ExecuteAsync(editorConfigFile, fileStream, cancellationToken);
+    }
+
+    public async Task ExecuteAsync(EditorConfigFile editorConfigFile, Stream fileStream, CancellationToken cancellationToken = default)
+    {
         var fileHash = fileStream.ToMD5HashString();
-        if (editorConfigFile.FilePath == fileHash)
+        if (editorConfigFile.FileHash == fileHash)
         {
             logger.LogInformation("File {FilePath} has not changed. Skipping processing", editorConfigFile.FilePath);
 
@@ -81,7 +87,7 @@ public class EditorConfigFileProcessor(SectionProcessor sectionProcessor, IFileS
                                 };
             editorConfigFile.ConfigSections!.Add(configSection);
 
-            await sectionProcessor.ExecuteAsync(configSection, iniFileSection.Value);
+            await sectionProcessor.ExecuteAsync(configSection, iniFileSection.Value, cancellationToken);
         }
     }
 }

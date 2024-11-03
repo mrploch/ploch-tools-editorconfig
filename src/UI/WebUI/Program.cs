@@ -1,8 +1,12 @@
+using Syncfusion.Licensing;
 using Microsoft.EntityFrameworkCore;
-using Ploch.Data.GenericRepository.EFCore;
-using Ploch.EditorConfigTools.DataAccess;
 using Ploch.EditorConfigTools.Models;
+using Ploch.EditorConfigTools.UseCases;
+using Ploch.EditorConfigTools.DataAccess;
+using Ploch.EditorConfigTools.Processing;
+using Ploch.Data.GenericRepository.EFCore;
 
+SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NDaF5cWWtCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWH9dcXRQQmZdVkB1X0o=");
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -16,6 +20,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
        .AddEntityFrameworkStores<EditorConfigDbContext>();
 builder.Services.AddRazorPages();
+builder.Services.AddProcessing().AddUseCases();
 
 var app = builder.Build();
 

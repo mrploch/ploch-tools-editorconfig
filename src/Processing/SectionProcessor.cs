@@ -5,11 +5,11 @@ using Ploch.EditorConfigTools.Models;
 namespace Ploch.EditorConfigTools.Processing;
 public class SectionProcessor(ConfigEntryProcessor configEntryProcessor, ProcessingContext context)
 {
-    public async Task ExecuteAsync(ConfigSection editorConfigSection, IniSection iniFileSection)
+    public async Task ExecuteAsync(ConfigSection editorConfigSection, IniSection iniFileSection, CancellationToken cancellationToken = default)
     {
         iniFileSection.Comments?.ForEach(c => editorConfigSection.Comments!.Add(new Comment { Value = c }));
 
-        editorConfigSection.FilePattern = await CreateFilePatternAsync(iniFileSection.Name);
+        editorConfigSection.FilePattern = await CreateFilePatternAsync(iniFileSection.Name, cancellationToken);
 
         foreach (var keyData in iniFileSection.Entries)
         {
@@ -20,11 +20,11 @@ public class SectionProcessor(ConfigEntryProcessor configEntryProcessor, Process
         }
     }
 
-    private async Task<FilePattern> CreateFilePatternAsync(string sectionGlob)
+    private async Task<FilePattern> CreateFilePatternAsync(string sectionGlob, CancellationToken cancellationToken = default)
     {
         var (fileNamePattern, fileExtensions) = SectionUtils.ParseFileExtensions(sectionGlob);
 
-        var filePattern = await context.GetFilePatternAsync(sectionGlob);
+        var filePattern = await context.GetFilePatternAsync(sectionGlob, cancellationToken);
         if (filePattern != null)
         {
             return filePattern;

@@ -10,12 +10,12 @@ namespace Ploch.EditorConfigTools.Models;
 
 public class EditorConfigFile : IHasId<int>, INamed, IHasDescription
 {
-    public string? Description { get; set; }
-
     public int Id { get; set; }
 
     [Required]
     public required string Name { get; set; }
+
+    public string? Description { get; set; }
 
     [Required]
     public string FilePath { get; set; } = null!;
